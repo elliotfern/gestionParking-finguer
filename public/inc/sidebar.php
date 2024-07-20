@@ -1,15 +1,15 @@
 <div class="d-flex flex-column flex-shrink-0 p-3">
-    <a href="/homepage/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none links-sidebar">
-    <img src="<?php echo APP_WEB;?>/public/inc/img/logo.png" alt="Logo" class="logo d-block mx-auto" width="150">
+    <a href="/inici/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none links-sidebar">
+    <img src="<?php echo APP_WEB;?>/public/inc/img/logo3.png" alt="Logo" class="d-block mx-auto" width="150" height="80">
     </a>
 <hr class="text-white">
    
-    <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-nav-scroll" style="display:block;background-color:#2d2f31!important;">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-nav-scroll" style="display:block;background-color:#000000 !important;">
 		<button class="navbar-toggler text-center" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon text-center"></span>
 		</button>
 
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="background-color:#2d2f31!important;">
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="background-color:#000000 !important;">
 
     <?php
     // Obtiene la URL actual
@@ -17,36 +17,36 @@
 
     // Define un array con los enlaces y sus detalles correspondientes
     $links = array(
-        "/homepage" => array(
-            "label" => "Homepage",
-            "url" => "/homepage",
+        "/inici" => array(
+            "label" => "Estat 1: pendent",
+            "url" => "/inici",
             "icon" => "bi-house-door",
             "paths" => array(
                 "M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4z"
             )
         ),
 
-        "/user-list" => array(
-            "label" => "User List",
-            "url" => "/user-list",
+        "/reserves-parking" => array(
+            "label" => "Estat 2: al parking",
+            "url" => "/reserves-parking",
             "icon" => "bi-coin",
             "paths" => array(
                 "M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm9 1.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4a.5.5 0 0 0-.5.5M9 8a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4A.5.5 0 0 0 9 8m1 2.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5m-1 2C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1 1 0 0 0 2 13h6.96q.04-.245.04-.5M7 6a2 2 0 1 0-4 0 2 2 0 0 0 4 0",
             )
         ),
 
-        "/client-list" => array(
-            "label" => "Client List",
-            "url" => "/client-list",
+        "/reserves-completades" => array(
+            "label" => "Estat 3: completades",
+            "url" => "/reserves-completades",
             "icon" => "bi-people-fill",
             "paths" => array(
                 "M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"
             )
         ),
 
-        "/job-list" => array(
-            "label" => "Job List",
-            "url" => "/job-list",
+        "/cercador-reserva" => array(
+            "label" => "Cercador reserva",
+            "url" => "/cercador-reserva",
             "icon" => "bi-list-task",
             "paths" => array(
                "M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5zM3 3H2v1h1z",
@@ -55,18 +55,38 @@
             )
         ),
 
-        "/form-list" => array(
-            "label" => "Client Forms",
-            "url" => "/form-list",
+        "/calendari/entrades" => array(
+            "label" => "Calendari entrades",
+            "url" => "/calendari/entrades",
             "icon" => "bi-list-task",
             "paths" => array(
                "M2 10h3a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1m9-9h3a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-3a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1m0 9a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1zm0-10a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM2 9a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2zm7 2a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-3a2 2 0 0 1-2-2zM0 2a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm5.354.854a.5.5 0 1 0-.708-.708L3 3.793l-.646-.647a.5.5 0 1 0-.708.708l1 1a.5.5 0 0 0 .708 0z",
             )
         ),
 
-        "/planning-list" => array(
-            "label" => "Planning Tasks",
-            "url" => "/planning-list",
+        "/calendari/sortides" => array(
+            "label" => "Calendari sortides",
+            "url" => "/calendari/sortides",
+            "icon" => "bi-list-task",
+            "paths" => array(
+               "M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z",
+                "M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z",
+            )
+        ),
+
+        "/cercadors" => array(
+            "label" => "Buscadors",
+            "url" => "/cercadors",
+            "icon" => "bi-list-task",
+            "paths" => array(
+               "M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z",
+                "M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z",
+            )
+        ),
+
+        "/clients-anuals" => array(
+            "label" => "Clients anuals",
+            "url" => "/clients-anuals",
             "icon" => "bi-list-task",
             "paths" => array(
                "M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z",
@@ -187,6 +207,6 @@ function logout() {
     sessionStorage.clear();
 
     // Redirigir a la página de inicio de sesión
-    window.location.href = 'https://webforms.designedly.ie/login';
+    window.location.href = 'https://finguer.gestionparking.net/login';
 }
 </script>

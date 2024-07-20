@@ -19,7 +19,7 @@ if(!isset($_SESSION['user'])){
     
     <style>
     body {
-      background-color: #2d2f31!important;
+      background-color: #f1f1f1!important;
     
     }
     </style>
@@ -29,28 +29,28 @@ if(!isset($_SESSION['user'])){
     <div class="container" style="margin-top:50px">
 
     <div class="col text-center" style="margin-bottom:20px">
-            <img src="<?php echo APP_WEB;?>/public/inc/img/logo.png" alt="Logo" class="logo d-block mx-auto" width="250">
+            <img src="<?php echo APP_WEB;?>/public/inc/img/logo2.png" alt="Logo" class="logo d-block mx-auto" width="250">
         </div>
 
     <div class="card mx-auto" style="max-width: 400px;">
 
         <div class="card-body">
             <div class="container">
-                <h1>Entrada al sistema</h1>
+                <h1>Acceso</h1>
                 <?php
     echo '<div class="alert alert-success" id="loginMessageOk" style="display:none" role="alert">
-                  <h4 class="alert-heading"><strong>Login OK!</h4></strong>
+                  <h4 class="alert-heading"><strong>Login OK!</strong></h4>
                   <h6>Acceso autorizado, en unos segundos será redirigido a la página de gestión.</h6>
                   </div>';
           
     echo '<div class="alert alert-danger" id="loginMessageErr" style="display:none" role="alert">
-                  <h4 class="alert-heading"><strong>Error en los datos</h4></strong>
+                  <h4 class="alert-heading"><strong>Error en los datos</strong></h4>
                   <h6>Usuario o contraseña incorrectos.</h6>
                   </div>';
     ?>
     
                 <form action="" method="post" class="login">
-                    <label for="username">Usuario</label>
+                    <label for="email">Usuario</label>
                     <input type="text" name="email" id="email" class="form-control">
                     <br>
     
@@ -97,7 +97,7 @@ $(function () {
           // redirect page
           setTimeout(function () {
             let url = window.location.hostname;
-            window.location = "https://" + url + "/homepage";
+            window.location = "https://" + url + "/inici";
           }, 1300);
         } else {
           // show error message

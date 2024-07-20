@@ -11,7 +11,7 @@ define("APP_SERVER", $url_server);
 define("APP_ROOT", $url_root);
 define("APP_WEB",$base_url);
 
-require 'vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
@@ -134,42 +134,14 @@ require_once(APP_ROOT . '/public/inc/functions.php');
 
 // API SERVER - GET/POST/PUT/DELETE PETITIONS
 
+// API SERVER 
+$route->add("/api/reserves/get","api/get-reserves.php");
+
 // AUTH API
 $route->add("/api/auth/post","api/auth/post-login.php");
 $route->add("/api/auth/login","api/auth/login.php");
 
-// USERS API
-$route->add("/api/users/post","api/users/post-users.php");
-$route->add("/api/users/get","api/users/get-users.php");
-$route->add("/api/users/put","api/users/put-users.php");
-
-// CLIENTS API
-$route->add("/api/clients/get","api/clients/get-clients.php");
-$route->add("/api/clients/post","api/clients/post-clients.php");
-$route->add("/api/clients/put","api/clients/put-clients.php");
-$route->add("/api/clients/delete","api/clients/delete-clients.php");
-
-// JOBS API
-$route->add("/api/job/get","api/job/get-job.php");
-$route->add("/api/job/post","api/job/post-job.php");
-$route->add("/api/job/put","api/job/put-job.php");
-
-// PLANNING TASKS API
-$route->add("/api/planning/get","api/planning/get-planning.php");
-$route->add("/api/planning/post","api/planning/post-planning.php");
-$route->add("/api/planning/put","api/planning/put-planning.php");
-
-// CLIENT FORMS API
-$route->add("/api/form/get","api/form/get-form.php");
-$route->add("/api/form/post","api/form/post-form.php");
-$route->add("/api/form/put","api/form/put-form.php");
-
-// CALENDAR OFFICE API
-$route->add("/api/calendar/all","api/calendar/calendar.php");
-
 // PAGES WITHOUT ACCESS RESTRICTED
-$route->add("/","public/form_list_form.php");
-$route->add("/form","public/form_list/public_website/form.php");
 $route->add("/login","public/auth/login.php");
  
 // Configurar los parámetros de la cookie de sesión
@@ -212,41 +184,70 @@ session_start();
             // HEADER FOR ALL PAGES
             require_once(APP_ROOT . '/public/inc/header_html.php');
 
-            // HOMEPAGE
-            $route->add("/private","public/private/index.php");
-            $route->add("/homepage","public/private/index.php");
+            // Pagines reserves
+            $route->add("/","public/1_reserves_pendents.php");
+            $route->add("/inici","public/1_reserves_pendents.php");
+            $route->add("/reserves-parking","public/2_reserves_parking.php");
+            $route->add("/reserves-completades","public/3_reserves_completades.php");
 
-            // USERS SECTION
-            $route->add("/user-list","public/user_list/index.php");
-            $route->add("/user-list/new","public/user_list/new-user.php");
-            $route->add("/user-list/{user}/password","public/user_list/password-user.php");
+            // Reserves:
+            // Api verificacio pagament amb redsys
+            $route->add("/reserva/verificar-pagament/{id}","public/soap/verificar-pagament.php");
 
-            // CLIENT LIST SECTION
-            $route->add("/client-list","public/client_list/index.php");
-            $route->add("/client-list/new","public/client_list/new-client.php");
-            $route->add("/client-list/view/{id}","public/client_list/view-client.php");
-            $route->add("/client-list/update/{id}","public/client_list/update-client.php");
+            // Pagines modificacio elements de la reserva
+            $route->add("/reserva/modificar/tipus/{id}","public/form-modificar/tipus-reserva.php");
+            $route->add("/reserva/modificar/telefon/{id}","public/form-modificar/client-telefon.php");
+            $route->add("/reserva/modificar/nom/{id}","public/form-modificar/client-nom.php");
+            $route->add("/reserva/modificar/entrada/{id}","public/form-modificar/reserva-entrada.php");
+            $route->add("/reserva/modificar/sortida/{id}","public/form-modificar/reserva-sortida.php");
+            $route->add("/reserva/modificar/vehicle/{id}","public/form-modificar/vehicle.php");
+            $route->add("/reserva/modificar/vol/{id}","public/form-modificar/vol.php");
+            $route->add("/reserva/modificar/nota/{id}","public/form-modificar/nota.php");
+            $route->add("/reserva/modificar/cercador/{id}","public/form-modificar/cercador.php");
+            $route->add("/reserva/modificar/reserva/{id}","public/form-modificar/reserva.php");
+            $route->add("/reserva/fer/check-in/{id}","public/form-modificar/checkin.php");
+            $route->add("/reserva/fer/check-out/{id}","public/form-modificar/checkout.php");
 
-             // JOB LIST SECTION
-             $route->add("/job-list","public/job_list/index.php");
-             $route->add("/job-list/new","public/job_list/new-job.php");
-             $route->add("/job-list/update/{id}","public/job_list/update-job.php");
-             $route->add("/job-list/view/{id}","public/job_list/view-job.php");
-             $route->add("/job-list/status/{status}","public/job_list/status-job.php");
-             $route->add("/job-list/user/{user}","public/job_list/view-job-user.php");
-             $route->add("/job-list/notes/new/{id}","public/job_list/new-note.php");
-             $route->add("/job-list/notes/update/{id}","public/job_list/update-note.php");
+            // Pagina eliminacio reserva
+            $route->add("/reserva/eliminar/reserva/{id}","public/form-eliminar/reserva.php");
 
-             // FORM LIST SECTION
-             $route->add("/form-list","public/form_list/index.php");
-             $route->add("/form-list/view/{clientId}","public/form_list/view-client-form.php");
+            // Pagines informacio reserva
+            $route->add("/reserva/info/nota/{id}","public/form-info/nota.php");
+            $route->add("/reserva/info/reserva/{id}","public/form-info/reserva.php");
+            
+            // Pagines enviament emails de la reserva
+            $route->add("/reserva/email/confirmacio/{id}","public/email/reserva-enviar-email.php");
+            $route->add("/reserva/email/factura/{id}","public/email/reserva-enviar-factura-pdf.php");
 
-              // PLANNING TASKS LIST SECTION
-              $route->add("/planning-list","public/planning_list/index.php");
-              $route->add("/planning-list/new/job/{jobId}","public/planning_list/new-planning-job.php");
-              $route->add("/planning-list/new/{userId}","public/planning_list/new-planning.php");
-              $route->add("/planning-list/new/","public/planning_list/new-planning.php");
-              $route->add("/planning-list/view/user/{userId}","public/planning_list/view-user-tasks.php");
+        // Clients anuals:
+            // Clients anual
+            $route->add("/clients-anuals","public/clients-anuals/clients.php");
+
+            $route->add("/clients-anuals/pendents","public/clients-anuals/estat-pendent.php");
+            $route->add("/clients-anuals/parking","public/clients-anuals/estat-parking.php");
+            $route->add("/clients-anuals/completades","public/clients-anuals/estat-completades.php");
+
+            $route->add("/clients-anuals/modificar/client/{idClient}","public/clients-anuals/modificar-client.php");
+            $route->add("/clients-anuals/eliminar/client/{idClient}","public/clients-anuals/eliminar-client.php");
+
+            $route->add("/clients-anuals/crear/reserva/","public/clients-anuals/crear-reserva.php");
+            $route->add("/clients-anuals/crear/reserva/{idClient}","public/clients-anuals/crear-reserva.php");
+            $route->add("/clients-anuals/crear/client","public/clients-anuals/crear-client.php");
+        
+            // Motor de recerca de reserves
+            $route->add("/cercador-reserva","public/motor-cerca/cercador.php");
+
+            // Calendari de entrades
+            $route->add("/calendari/entrades","public/calendari-reserves/entrades.php");
+            $route->add("/calendari/entrades/any/{any}/mes/{mes}","public/calendari-reserves/entrades-mes.php");
+            $route->add("/calendari/entrades/any/{any}/mes/{mes}/dia/{dia}","public/calendari-reserves/entrades-dia.php");
+
+            // Calendari de sortides
+            $route->add("/calendari/sortides","public/calendari-reserves/sortides.php");
+            $route->add("/calendari/sortides/any/{any}/mes/{mes}","public/calendari-reserves/sortides-mes.php");
+            $route->add("/calendari/sortides/any/{any}/mes/{mes}/dia/{dia}","public/calendari-reserves/sortides-dia.php");
+
+            // Cercadors
         }
 
         // Error route (404)

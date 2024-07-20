@@ -9,7 +9,7 @@
 
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="shortcut icon" href="">
-<title>Designedly - Intranet</title>
+<title>GestiónParking.net - Finguer</title>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
@@ -43,7 +43,7 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-2 sticky-md-top fixe" style="background-color:#2d2f31!important;">
+    <div class="col-sm-2 sticky-md-top fixe" style="background-color:#000000!important;">
     <?php require_once(APP_ROOT . '/public/inc/sidebar.php'); ?>
     </div>
 
