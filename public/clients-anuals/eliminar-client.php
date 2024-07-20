@@ -27,14 +27,7 @@ if (is_numeric($idClient)) {
         
         echo "<h4>Client: ".$nom_old." </h4>";
         echo "<h5>Eliminació del client</h5>";
-
-        function data_input($data) {
-            $data = trim($data);
-            $data = stripslashes($data);
-            $data = htmlspecialchars($data);
-            return $data;
-        }
-
+        
         if (isset($_POST["remove-client"])) {
                             $emailSent = true;
                             $sql = "DELETE FROM usuaris

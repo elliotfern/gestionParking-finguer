@@ -5,11 +5,6 @@ require_once(APP_ROOT . '/public/inc/header-reserves-anuals.php');
 echo "<div class='container'>";
 echo "<h3>Alta nou client Abonament anual</h3>";
 
-function data_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    return $data;
-}
 $codi_resposta = 2;
 	
               if (isset($_POST["alta-client"])) {

@@ -27,12 +27,6 @@ if (is_numeric($id)) {
             <h2>Canvi telèfon del client</h2>";
             echo "<h3>Client: ".$firstName_old." </h3>";
 
-            function data_input($data) {
-                $data = trim($data);
-                $data = stripslashes($data);
-                return $data;
-              }
-          
               if (isset($_POST["update-tel"])) {
                   if (empty($_POST["tel"])) {
                     $tel = data_input($_POST["tel"], ENT_NOQUOTES);

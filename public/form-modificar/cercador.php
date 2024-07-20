@@ -24,12 +24,6 @@ if (is_numeric($id)) {
 
             echo "<div class='container'>
             <h2>Afegir buscador reserva número: ".$idReserva_old." </h2>";
-
-            function data_input($data) {
-                $data = trim($data);
-                $data = stripslashes($data);
-                return $data;
-              }
           
               if (isset($_POST["update-buscadores"])) {
                 global $pdo_conn;

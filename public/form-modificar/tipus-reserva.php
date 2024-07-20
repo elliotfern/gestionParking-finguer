@@ -34,12 +34,6 @@ if (is_numeric($id)) {
             <h2>Canvi tipus de reserva</h2>";
             echo "<h3>Reserva núm: ".$idReserva_old."</h3>";
 
-            function data_input($data) {
-                $data = trim($data);
-                $data = stripslashes($data);
-                return $data;
-              }
-          
               if (isset($_POST["update-tipus"])) {
           
                   if (empty($_POST["tipo"])) {

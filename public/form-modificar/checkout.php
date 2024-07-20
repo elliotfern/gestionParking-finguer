@@ -35,11 +35,6 @@ if (is_numeric($id)) {
             echo '<h4>Estat actual: '.$estat.'</h4>';
         }
 
-            function data_input($data) {
-                $data = trim($data);
-                $data = stripslashes($data);
-                return $data;
-              }
           
               if (isset($_POST["add-checkout"])) {
                 global $pdo_conn;

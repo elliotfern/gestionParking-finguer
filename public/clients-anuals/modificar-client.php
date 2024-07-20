@@ -27,13 +27,7 @@ if (is_numeric($idClient)) {
             $anualitat_old = $row['anualitat'];
         }
     echo "<h4>Client: ".$nom_old." </h4>";
-
-
-function data_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    return $data;
-}
+    
 $codi_resposta = 2;
 
               if (isset($_POST["update-client"])) {

@@ -30,12 +30,6 @@ if (is_numeric($id)) {
             echo "<h2>Afegir/modificar una nota a la reserva núm: ".$idReserva_old." </h2>";
         }
 
-            function data_input($data) {
-                $data = trim($data);
-                $data = stripslashes($data);
-                return $data;
-              }
-          
               if (isset($_POST["add-nota"])) {
                 global $pdo_conn;
                   

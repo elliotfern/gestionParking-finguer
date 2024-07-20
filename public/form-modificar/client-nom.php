@@ -31,12 +31,6 @@ if (is_numeric($id)) {
             echo "<div class='container'>
             <h2>Canvi nom del client</h2>";
             echo "<h3>Client: ".$nombre_old." </h3>";
-
-            function data_input($data) {
-                $data = trim($data);
-                $data = stripslashes($data);
-                return $data;
-              }
           
               if (isset($_POST["update-client"])) {
           

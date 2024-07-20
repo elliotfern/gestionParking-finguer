@@ -59,12 +59,6 @@ if (is_numeric($id)) {
         <h2>Modificació ID Reserva: ".$idReserva_old." </h2>";
         echo $fecha_formateada;
 
-            function data_input($data) {
-                $data = trim($data);
-                $data = stripslashes($data);
-                return $data;
-              }
-          
               if (isset($_POST["update"])) {                  
                 if (empty($_POST["buscadores"])) {
                     $buscadores = data_input($_POST["buscadores"]);

@@ -18,12 +18,6 @@ if (is_numeric($idClient)) {
 }
 
 echo "<h3>Creació reserva de client Abonament anual</h3>";
-
-function data_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    return $data;
-}
 	
 $codi_resposta = 2;
 

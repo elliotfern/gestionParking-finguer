@@ -37,12 +37,6 @@ if (is_numeric($id)) {
             } else {
                 echo '<h3>Canvi dades sortida (Dia i Hora). Reserva núm. '.$idReserva_old.'</h3>';
             }
-
-            function data_input($data) {
-                $data = trim($data);
-                $data = stripslashes($data);
-                return $data;
-              }
           
               if (isset($_POST["update-sortida"])) {          
                   if (empty($_POST["horaSalida"])) {
